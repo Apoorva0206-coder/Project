@@ -12,10 +12,13 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Axios from 'axios';
 import Alert from '@mui/material/Alert';
-
+const pages = ['signup'];
 function Login()  
 {
   const navigate = useNavigate();
+  const openmenu=()=>{
+  navigate('/Signup');
+  }
   const handleSubmit = e => {
     // Prevent the default submit and page reload
     e.preventDefault()
@@ -78,6 +81,15 @@ function Login()
                   >
                     UniBooks
                   </Typography>
+                  {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={openmenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
                    {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
@@ -111,7 +123,9 @@ function Login()
     <input class="btn btn-danger" type="submit" value="Submit"/>
     </div>
     </form>
-    <p><a href="/signup" class="link-underline-danger">New User,please register</a></p>
+    <Alert icon={false} severity="info">
+    New User,please signup
+</Alert>
     </Card>
     
   </Grid>
