@@ -97,6 +97,7 @@ const [cpaswd, setConfirmPassword] = useState()
                   </Typography>
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
+                   {alert ? <Alert variant="filled" severity="info">{alertContent}</Alert> : <></> }
                 </Toolbar>
               </Container>
             </AppBar>
@@ -144,7 +145,7 @@ const [cpaswd, setConfirmPassword] = useState()
     </div>
     </form>
     </Card>
-    {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
+   
   </Grid>
 </Grid>
 </Container>
