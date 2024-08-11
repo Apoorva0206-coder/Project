@@ -50,7 +50,7 @@ else
         {
           setAlertContent('User registered successfully');
           setAlert(true);
-          navigate('/Login')
+          
 
         }
       })
