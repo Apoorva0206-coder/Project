@@ -12,12 +12,16 @@ import Card from '@mui/material/Card';
 import Alert from '@mui/material/Alert';
 import CardMedia from '@mui/material/CardMedia';
 import Axios from 'axios';
-
+import { Button } from '@mui/material';
+const pages = ['Home'];
 
 
 function Signup()  
 {
   const navigate = useNavigate();
+  const openmenu=()=>{
+    navigate('/Home');
+    }
 const validateemail = e =>
 {
         var em=e.target.value;
@@ -95,6 +99,15 @@ const [cpaswd, setConfirmPassword] = useState()
                   >
                     UniBooks
                   </Typography>
+                  {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={openmenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+            ))}
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
                    {alert ? <Alert variant="filled" severity="info">{alertContent}</Alert> : <></> }
