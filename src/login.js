@@ -93,7 +93,7 @@ function Login()
             ))}
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
-                   {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
+                   {alert ? <Alert variant="filled" severity="info">{alertContent}</Alert> : <></> }
                 </Toolbar>
               </Container>
             </AppBar>
