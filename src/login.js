@@ -80,6 +80,7 @@ function Login()
                   </Typography>
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
+                   {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
                 </Toolbar>
               </Container>
             </AppBar>
@@ -114,7 +115,7 @@ function Login()
     </Card>
     
   </Grid>
-  {alert ? <Alert variant="outlined" severity="info">{alertContent}</Alert> : <></> }
+ 
 </Grid>
 </Container>
 </div>
