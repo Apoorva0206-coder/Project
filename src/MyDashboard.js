@@ -124,10 +124,7 @@ function MyDashboard (  ) {
                 
                 <Grid item xs={12} sm={4} ms={4} key={index} >
                   <Card sx={{ maxWidth:500,backgroundColor:"white"}}>
-                  
-                 <Tooltip title="progress" arrow>
-                  <LinearProgress variant="determinate"  value={result.progress} />
-                  </Tooltip>
+                 
       
                   <CardMedia
                     sx={{ height: 350}}
@@ -185,7 +182,9 @@ function MyDashboard (  ) {
                   </Button> 
         </Stack>
                 </CardActions>
-               
+               <Tooltip title={result.progress} arrow>
+                <LinearProgress variant="determinate" color='success'  value={result.progress}  />
+                </Tooltip>
                 </Card>
                
                 </Grid>
