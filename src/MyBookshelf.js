@@ -27,7 +27,7 @@ import { Button } from '@mui/material';
 import { Tooltip } from '@mui/material';
 import Axios from 'axios';
 import Alert from '@mui/material/Alert';
-
+import Divider from '@mui/material/Divider';
 
 const pages = ['Dashboard'];
 
@@ -215,8 +215,8 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40
                   {result.volumeInfo.authors}
                   </Typography>
                   </CardContent>
-                  {/* <Divider /> */}
-                  <CardActions style={{backgroundColor:"rgb(245, 142, 104)"}}>
+                   <Divider /> 
+                  <CardActions style={{backgroundColor:"white"}}>
                     <Stack direction="row" spacing={4} >
                         <Link href={result.volumeInfo.infoLink}  target="_blank" >
                         <InfoIcon ></InfoIcon>
@@ -224,12 +224,10 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40
                         <Link href={result.volumeInfo.previewLink}  target="_blank" >
                         <PreviewIcon ></PreviewIcon>
                         </Link>
-                        <Link href={result.saleInfo.buyLink}  target="_blank" >
+                        <Link href={result.accessInfo.webReaderLink}  target="_blank" >
                         <ShoppingCartIcon ></ShoppingCartIcon>
                         </Link>
-                        <Typography gutterBottom noWrap variant="body2" component="div" textAlign={"unset"} >
-                       {result.volumeInfo.publisher}
-                        </Typography>
+                        
                       <Button
   onClick={(e) => {
         //  const len=result.volumeInfo.industryIdentifiers[0].identifier.length;
