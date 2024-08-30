@@ -123,19 +123,8 @@ function MyDashboard (  ) {
                data.map((result,index)=>(
                 
                 <Grid item xs={12} sm={4} ms={4} key={index} >
-                  <Card sx={{ maxWidth:500,backgroundColor:"rgb(245, 142, 104)"}}>
-                  <CardHeader 
-                 title={
-                  <Typography gutterBottom noWrap variant="body1"  component="h2">
-                    {result.title}
-                    <Tooltip title="progress" arrow>
-                   
-                  </Tooltip>
-                  </Typography>
+                  <Card sx={{ maxWidth:500,backgroundColor:"white"}}>
                   
-                 }
-                 style={{textAlign:"center"}}
-                 />
                  <Tooltip title="progress" arrow>
                   <LinearProgress variant="determinate"  value={result.progress} />
                   </Tooltip>
