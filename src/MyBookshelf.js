@@ -202,15 +202,8 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40
               data.items.map((result,index)=>(
                 
                 <Grid item xs={12} sm={4} ms={4} key={index} >
-                  <Card sx={{ maxWidth: 500,backgroundColor:"rgb(245, 142, 104)" }}>
-                  <CardHeader 
-                 title={
-                  <Typography gutterBottom noWrap variant="body1"  component="h2">
-                    {result.volumeInfo.title}
-                  </Typography> 
-                 }
-                 style={{textAlign:"center"}}
-                 />     
+                  <Card sx={{ maxWidth: 500,backgroundColor:"white" }}>
+                  
                   <CardMedia
                     sx={{ height: 350}}
                     image= {`http://books.google.com/books/content?id=${result.id}&printsec=frontcover&img=1&zoom=1&edge=curl`}
