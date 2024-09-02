@@ -67,9 +67,9 @@ function MyDashboard (  ) {
     return (
       <div style={{ height: 350, width: '100%' }}>
         <Container maxWidth={false} disableGutters>
-        <AppBar position="sticky" sx={{ bgcolor: "crimson"}}>
-              <Container maxWidth="xl">
-                <Toolbar disableGutters>
+               <AppBar position="sticky" sx={{ bgcolor: "#FF474C",maxWidth:"100%"}}>
+              <Container maxWidth="lg">
+                <Toolbar disableGutters maxWidth="xl">
                 <Box
                     component="img"
                     sx={{
@@ -88,7 +88,7 @@ function MyDashboard (  ) {
                     sx={{
                       mr: 2,
                       display: { xs: 'none', md: 'flex' },
-                      fontFamily: 'monospace',
+                      fontFamily: 'initial',
                       fontWeight: 700,
                       letterSpacing: '.3rem',
                       color: 'inherit',
@@ -106,7 +106,7 @@ function MyDashboard (  ) {
                 {page}
               </Button>
             ))}
-                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>  
+                  <Box sx={{ flexGrow: 2,fontFamily: 'initial', display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
                   {alert ? <Alert variant="filled" severity="success">{alertContent}</Alert> : <></> }          
         <Badge badgeContent={sessionStorage.getItem('name')} color="primary">
@@ -122,7 +122,7 @@ function MyDashboard (  ) {
               
                data.map((result,index)=>(
                 
-                <Grid item xs={12} sm={4} ms={4} key={index} >
+                <Grid item xs={12} sm={3} ms={3} key={index} >
                   <Card sx={{ maxWidth:500,backgroundColor:"white"}}>
                  
       
@@ -132,6 +132,10 @@ function MyDashboard (  ) {
                     title={result.title}
                     
                   />
+                   <Divider /> 
+                  <Tooltip title={`Updated progress: ${result.progress}%`} arrow>
+                <LinearProgress variant="determinate" color='success'  value={result.progress}  />
+                </Tooltip>
                   <CardActions >
                   <Stack direction="row" spacing={2} >
                   <TextField id="outlined-basic" label="progress" variant="outlined"  onChange={(e) => {setProgress(e.target.value) }} size='small'/>
