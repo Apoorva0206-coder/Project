@@ -186,9 +186,7 @@ function MyDashboard (  ) {
                   </Button> 
         </Stack>
                 </CardActions>
-               <Tooltip title={result.progress} arrow>
-                <LinearProgress variant="determinate" color='success'  value={result.progress}  />
-                </Tooltip>
+               
                 </Card>
                
                 </Grid>
