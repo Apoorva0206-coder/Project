@@ -139,8 +139,10 @@ function MyDashboard (  ) {
                   <CardActions >
                   <Stack direction="row" spacing={2} >
                   <TextField id="outlined-basic" label="progress" variant="outlined"  onChange={(e) => {setProgress(e.target.value) }} size='small'/>
-        <Button onClick={() => {
+       <Button onClick={() => {
           var id=result.id
+          if(progress>0)
+          {
           Axios.put('/updateprogress', { progress,id }).then((resp) => {
             if(resp.status===200)
               {
@@ -154,11 +156,20 @@ function MyDashboard (  ) {
                 setAlertContent('No updates');
                 setAlert(true);
               }
-          })
-          
+            })
+          }
+          else
+            {
+            setAlertContent('Enter a valid progress.');
+            setAlert(true);
+            }
           
         }}
         >
+          <Tooltip title="update progress" arrow>
+        <CheckCircleIcon></CheckCircleIcon>
+        </Tooltip>
+        </Button>
           <Tooltip title="update progress" arrow>
         <CheckCircleIcon></CheckCircleIcon>
         </Tooltip>
