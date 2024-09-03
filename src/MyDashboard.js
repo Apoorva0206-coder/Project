@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import CardHeader from '@mui/material/CardHeader';
 import {CardActions} from '@mui/material';
 import { Grid, Typography } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -25,19 +23,19 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { red } from '@mui/material/colors';
 import Divider from '@mui/material/Divider';
 
+// s
 const pages = ['Bookshelf'];
-
 function MyDashboard (  ) {
   const [data, setData] = useState([]);
   const [progress, setProgress] = useState(' ');
     const [alert, setAlert] = useState(false);
     const [alertContent, setAlertContent] = useState('');
-    
-    
     const navigate = useNavigate();
     const openmenu=()=>{
       navigate('/MyBookshelf');
       }
+
+
     useEffect(() => {
     fetch(`https://server-g1s0.onrender.com/mywishlist/`+sessionStorage.getItem('email'))
     .then(response => {
@@ -106,12 +104,15 @@ function MyDashboard (  ) {
                 {page}
               </Button>
             ))}
+             
+              
                   <Box sx={{ flexGrow: 2,fontFamily: 'initial', display: { xs: 'none', md: 'flex' } }}>  
                   </Box>
                   {alert ? <Alert variant="filled" severity="success">{alertContent}</Alert> : <></> }          
-        <Badge badgeContent={sessionStorage.getItem('name')} color="primary">
+                  <Badge badgeContent={sessionStorage.getItem('name')} color="primary">
         <IconButton  onClick={logout} sx={{ p: 0 }}>
-        <LogoutIcon></LogoutIcon>
+        
+        <LogoutIcon> </LogoutIcon>
       </IconButton>
       </Badge>
       </Toolbar>
@@ -139,7 +140,7 @@ function MyDashboard (  ) {
                   <CardActions >
                   <Stack direction="row" spacing={2} >
                   <TextField id="outlined-basic" label="progress" variant="outlined"  onChange={(e) => {setProgress(e.target.value) }} size='small'/>
-       <Button onClick={() => {
+        <Button onClick={() => {
           var id=result.id
           if(progress>0)
           {
@@ -148,7 +149,7 @@ function MyDashboard (  ) {
               {
                 setAlertContent('progress updated successfully');
                 setAlert(true);
-                window.location.reload();
+               
       
               }
               else if(resp.status===203)
@@ -166,10 +167,6 @@ function MyDashboard (  ) {
           
         }}
         >
-          <Tooltip title="update progress" arrow>
-        <CheckCircleIcon></CheckCircleIcon>
-        </Tooltip>
-        </Button>
           <Tooltip title="update progress" arrow>
         <CheckCircleIcon></CheckCircleIcon>
         </Tooltip>
